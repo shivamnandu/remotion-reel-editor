@@ -1,0 +1,35 @@
+// Template for a video's creative edit. Copy to src/videos/<id>/Video.tsx, then: npm run registry
+// The rough cut (jump cuts, music, sfx) comes from edit.json via <AutoReel>; graphics go on top at
+// frames from `npm run words -- <id> "<phrase>"` (output timeline). Captions are drawn LAST so no
+// graphic ever covers them; move them with yOverrides where a graphic needs their band.
+import React from "react";
+import { AbsoluteFill, Sequence } from "remotion";
+import { AutoReel, CaptionTrack, type Edit } from "../../shared/AutoReel";
+import { Flash, HookText, StatPanel } from "../../shared/graphics";
+
+// Every number below is a measured frame (word start or cut), never a guess.
+const HOOK = { from: 0, len: 75 };
+const STAT = { from: 120, len: 60 }; // e.g. `npm run words -- <id> "viral"` -> f120
+
+export const Video: React.FC<{ edit: Edit }> = ({ edit }) => {
+  return (
+    <AbsoluteFill>
+      <AutoReel edit={edit} hideCaptions />
+
+      <Sequence from={HOOK.from} durationInFrames={HOOK.len} premountFor={0}>
+        <HookText lines={["your hook line", "goes here"]} />
+      </Sequence>
+
+      <Sequence from={STAT.from} durationInFrames={STAT.len} premountFor={0}>
+        <StatPanel variant="full" value={17000} compact suffix="+" label="views in 48 hours" />
+      </Sequence>
+      <Sequence from={STAT.from} durationInFrames={6} premountFor={0}>
+        <Flash />
+      </Sequence>
+
+      {edit.captions ? (
+        <CaptionTrack captions={edit.captions} yOverrides={[{ from: STAT.from, to: STAT.from + STAT.len, y: 1500 }]} />
+      ) : null}
+    </AbsoluteFill>
+  );
+};

@@ -1,0 +1,34 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Ignore the output video from Git but not videos you import into src/.
+out
+
+# Python env for the skill's helper scripts
+.venv
+
+# whisper.cpp checkout, binaries and model weights (re-created by setup)
+bin
+
+# Large libraries / generated analysis (re-creatable)
+assets
+analysis
+
+# Raw footage is large; keep it out of Git
+public/recordings
+public/screen-recordings
+
+# Reference reels (other creators' videos: analysis only, never published)
+reference
+
+# Footage FX outputs and the gallery sample (re-create with `npm run fx` / `npm run fx-sample`)
+public/fx
+
+# Per-project brand assets and per-video edits stay local
+public/brand
+public/cutouts
+public/hyperframes
+public/images
+public/music pack

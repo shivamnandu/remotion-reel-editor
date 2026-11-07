@@ -1,0 +1,72 @@
+{
+  "name": "video-editor",
+  "version": "1.0.0",
+  "description": "Talk-to-edit video pipeline: Remotion + HyperFrames + whisper.cpp",
+  "repository": {},
+  "license": "UNLICENSED",
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
+  "private": true,
+  "dependencies": {
+    "@remotion/animation-utils": "4.0.540",
+    "@remotion/captions": "4.0.540",
+    "@remotion/cli": "4.0.540",
+    "@remotion/gif": "4.0.540",
+    "@remotion/google-fonts": "4.0.540",
+    "@remotion/layout-utils": "4.0.540",
+    "@remotion/light-leaks": "4.0.540",
+    "@remotion/lottie": "4.0.540",
+    "@remotion/media-utils": "4.0.540",
+    "@remotion/motion-blur": "4.0.540",
+    "@remotion/noise": "4.0.540",
+    "@remotion/paths": "4.0.540",
+    "@remotion/rounded-text-box": "4.0.540",
+    "@remotion/sfx": "4.0.540",
+    "@remotion/shapes": "4.0.540",
+    "@remotion/starburst": "4.0.540",
+    "@remotion/transitions": "4.0.540",
+    "lottie-web": "5.13.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.540"
+  },
+  "devDependencies": {
+    "@remotion/eslint-config-flat": "4.0.540",
+    "@types/react": "19.3.0",
+    "@types/web": "0.0.166",
+    "eslint": "10.12.0",
+    "hyperframes": "0.9.13",
+    "prettier": "3.8.1",
+    "typescript": "5.9.3"
+  },
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion bundle",
+    "upgrade": "remotion upgrade",
+    "lint": "eslint src && tsc",
+    "transcribe": "node scripts/transcribe.mjs",
+    "verify": "node scripts/verify-setup.mjs",
+    "ingest": "node scripts/ingest.mjs",
+    "auto-edit": "node scripts/auto-edit.mjs",
+    "registry": "node scripts/registry.mjs",
+    "fx": "node scripts/fx.mjs",
+    "luts": "node scripts/make-luts.mjs",
+    "fx-sample": "node scripts/make-gallery-sample.mjs",
+    "fx-find": "node scripts/find-effect.mjs",
+    "words": "node scripts/find-words.mjs",
+    "check": "node scripts/check.mjs",
+    "render": "node scripts/render.mjs",
+    "find": "node scripts/find-audio.mjs",
+    "use": "node scripts/use-audio.mjs",
+    "sfx": "node scripts/generate-sfx.mjs",
+    "index-sounds": "node scripts/index-sounds.mjs",
+    "import-audio": "node scripts/import-audio.mjs"
+  },
+  "overrides": {
+    "undici": "7.30.1"
+  },
+  "allowScripts": {
+    "esbuild": false
+  }
+}
